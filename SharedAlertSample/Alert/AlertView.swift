@@ -50,6 +50,8 @@ struct AlertView: ViewModifier {
                         Text(button.title)
                     }
                 }
+            } message: {
+                Text(details.message)
             }
     }
 }
