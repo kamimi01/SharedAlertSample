@@ -7,12 +7,23 @@
 
 import SwiftUI
 
+protocol AlertPresentable {
+    var isShowingAlert: Bool { get set }
+    var details: AlertDetails { get }
+}
+
 struct AlertButton: Identifiable {
     let id = UUID().uuidString
     
     let title: String
     let role: ButtonRole?
-    let action: () -> Void
+    let action: (() -> Void)?
+    
+    init(title: String, role: ButtonRole? = nil, action: ( () -> Void)? = nil) {
+        self.title = title
+        self.role = role
+        self.action = action
+    }
 }
 
 struct AlertDetails: Equatable {
@@ -45,7 +56,8 @@ struct AlertView: ViewModifier {
             .alert(details.title, isPresented: $isShowing) {
                 ForEach(details.buttons) { button in
                     Button(role: button.role, action: {
-                        button.action()
+                        button.action?()
+                        isShowing = false
                     }) {
                         Text(button.title)
                     }

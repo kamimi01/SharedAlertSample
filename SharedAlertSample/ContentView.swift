@@ -12,11 +12,20 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Button(action: {}) {
+            Button(action: {
+                viewModel.showAlert1()
+            }) {
                 Text("Show Alert1")
+            }
+            
+            Button(action: {
+                viewModel.showAlert2()
+            }) {
+                Text("Show Alert2")
             }
         }
         .padding()
+        .showAlert(isShowing: $viewModel.isShowingAlert, details: viewModel.details)
     }
 }
 
