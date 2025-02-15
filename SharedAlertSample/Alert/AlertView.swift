@@ -12,7 +12,7 @@ protocol AlertPresentable {
     var details: AlertDetails { get }
 }
 
-struct AlertButton: Identifiable {
+struct AlertButton: Identifiable, Equatable {
     let id = UUID().uuidString
     
     let title: String
@@ -24,27 +24,17 @@ struct AlertButton: Identifiable {
         self.role = role
         self.action = action
     }
+
+    static func == (lhs: AlertButton, rhs: AlertButton) -> Bool {
+        lhs.title == rhs.title &&
+        lhs.role == rhs.role
+    }
 }
 
 struct AlertDetails: Equatable {
     let title: String
     let message: String
     let buttons: [AlertButton]
-    
-    /// - NOTE: If it has the same title, message and button title, determined as the same
-    static func == (lhs: AlertDetails, rhs: AlertDetails) -> Bool {
-        var hasSameButtons: Bool {
-            var isSame = true
-            for (index, _) in lhs.buttons.enumerated() {
-                if lhs.buttons[index].title != rhs.buttons[index].title {
-                    isSame = false
-                }
-            }
-            return isSame
-        }
-        
-        return lhs.title == rhs.title && lhs.message == rhs.message && hasSameButtons
-    }
 }
 
 struct AlertView: ViewModifier {
