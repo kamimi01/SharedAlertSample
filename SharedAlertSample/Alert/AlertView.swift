@@ -18,11 +18,13 @@ struct AlertButton: Identifiable, Equatable {
     let title: String
     let role: ButtonRole?
     let action: (() -> Void)?
-    
-    init(title: String, role: ButtonRole? = nil, action: ( () -> Void)? = nil) {
+    let accessibilityIdentifier: String
+
+    init(title: String, role: ButtonRole? = nil, action: ( () -> Void)? = nil, accesibilityIdentifier: String = "") {
         self.title = title
         self.role = role
         self.action = action
+        self.accessibilityIdentifier = accesibilityIdentifier
     }
 
     static func == (lhs: AlertButton, rhs: AlertButton) -> Bool {
@@ -51,6 +53,7 @@ struct AlertView: ViewModifier {
                     }) {
                         Text(button.title)
                     }
+                    .accessibilityIdentifier(button.accessibilityIdentifier)
                 }
             } message: {
                 Text(details.message)
