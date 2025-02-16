@@ -23,6 +23,12 @@ struct ContentView: View {
             }) {
                 Text("Show Alert2")
             }
+
+            Button(action: {
+                viewModel.showAlert3()
+            }) {
+                Text("Show Alert3")
+            }
         }
         .padding()
         .showAlert(isShowing: $viewModel.isShowingAlert, details: viewModel.details)

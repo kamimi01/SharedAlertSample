@@ -29,4 +29,18 @@ final class ContentViewModel: ObservableObject, AlertPresentable {
         details = AlertDetails(title: "Alert2", message: "Alert2 message", buttons: [button1, button2])
         isShowingAlert = true
     }
+
+    func showAlert3() {
+        let button1 = AlertButton(title: "Action1", action: {
+            print("alert3 button1")
+        })
+        let button2 = AlertButton(title: "Action2", action: {
+            print("alert3 button2")
+        })
+        let button3 = AlertButton(title: "Action3", action: {
+            print("alert3 button3")
+        })
+        details = AlertDetails(title: "Alert3", message: "Alert3 message", buttons: [button1, button2, button3])
+        isShowingAlert = true
+    }
 }
