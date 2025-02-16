@@ -8,6 +8,7 @@
 import Foundation
 
 final class ContentViewModel: ObservableObject, AlertPresentable {
+    // AlertPresentable
     @Published var isShowingAlert: Bool = false
     @Published var alertDetails = AlertDetails(title: "", message: "", buttons: [AlertButton(title: "")])
     
