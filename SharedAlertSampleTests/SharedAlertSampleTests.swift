@@ -32,6 +32,7 @@ struct SharedAlertSampleTests {
     }
 
     @Test func showAlert2() {
+        // Arrange
         #expect(!viewModel.isShowingAlert, "❌ Alert should not be showing")
 
         // Act
@@ -50,6 +51,7 @@ struct SharedAlertSampleTests {
     }
 
     @Test func showAlert3() {
+        // Arrange
         #expect(!viewModel.isShowingAlert, "❌ Alert should not be showing")
 
         // Act
