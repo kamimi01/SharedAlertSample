@@ -9,13 +9,13 @@ import Foundation
 
 final class ContentViewModel: ObservableObject, AlertPresentable {
     @Published var isShowingAlert: Bool = false
-    @Published var details = AlertDetails(title: "", message: "", buttons: [AlertButton(title: "")])
+    @Published var alertDetails = AlertDetails(title: "", message: "", buttons: [AlertButton(title: "")])
     
     func showAlert1() {
         let button = AlertButton(title: "OK", action: {
             print("alert1 button")
         })
-        details = AlertDetails(title: "Alert1", message: "Alert1 message", buttons: [button])
+        alertDetails = AlertDetails(title: "Alert1", message: "Alert1 message", buttons: [button])
         isShowingAlert = true
     }
     
@@ -26,7 +26,7 @@ final class ContentViewModel: ObservableObject, AlertPresentable {
         let button2 = AlertButton(title: "Cancel", role: .cancel, action: {
             print("alert2 button2")
         })
-        details = AlertDetails(title: "Alert2", message: "Alert2 message", buttons: [button1, button2])
+        alertDetails = AlertDetails(title: "Alert2", message: "Alert2 message", buttons: [button1, button2])
         isShowingAlert = true
     }
 
@@ -40,7 +40,7 @@ final class ContentViewModel: ObservableObject, AlertPresentable {
         let button3 = AlertButton(title: "Action3", action: {
             print("alert3 button3")
         })
-        details = AlertDetails(title: "Alert3", message: "Alert3 message", buttons: [button1, button2, button3])
+        alertDetails = AlertDetails(title: "Alert3", message: "Alert3 message", buttons: [button1, button2, button3])
         isShowingAlert = true
     }
 }

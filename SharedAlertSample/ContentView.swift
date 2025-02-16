@@ -31,7 +31,7 @@ struct ContentView: View {
             }
         }
         .padding()
-        .showAlert(isShowing: $viewModel.isShowingAlert, details: viewModel.details)
+        .showAlert(isShowing: $viewModel.isShowingAlert, details: viewModel.alertDetails)
     }
 }
 

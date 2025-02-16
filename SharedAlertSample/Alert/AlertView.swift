@@ -9,7 +9,7 @@ import SwiftUI
 
 protocol AlertPresentable {
     var isShowingAlert: Bool { get set }
-    var details: AlertDetails { get }
+    var alertDetails: AlertDetails { get }
 }
 
 struct AlertButton: Identifiable, Equatable {
